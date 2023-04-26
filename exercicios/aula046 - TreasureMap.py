@@ -5,7 +5,7 @@ mapa = [linha1, linha2, linha3]
 print(f'\033[34m1\033[m {linha1}\n\033[34m2\033[m {linha2}\n\033[34m3\033[m {linha3}')
 print('-' * 25)
 while True:
-    posicao_linha = int(input('Em qual linha deseja colocar o tesouro? '))
+    posicao_linha = int(input('Em qual LINHA deseja colocar o tesouro? '))
     if 1 <= posicao_linha <= 3:
         break
     else:
@@ -19,7 +19,7 @@ else:
     print(f'{linha1}\n{linha2}\n\033[34m{linha3}\033[m')
 print('-' * 25)
 while True:
-    posicao_coluna = int(input('Em qual coluna deseja colocar o tesouro? '))
+    posicao_coluna = int(input('Em qual COLUNA deseja colocar o tesouro? '))
     if 1 <= posicao_coluna <= 3:
         break
     else:
