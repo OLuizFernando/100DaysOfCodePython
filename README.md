@@ -7,3 +7,5 @@ Projetos feitos durante o '100 Days of Code' na Udemy da professora Angela Yu
 
 Minijogo onde é mostrado um mapa de uma matriz 3 por 3 e o usuário deve escolher um dos espaços para posicionar o tesouro.
 * [aula067-Hangman](https://github.com/OLuizFernando/Exercicios100DaysOfCodePython/blob/main/exercicios/aula067-Hangman.py)
+
+Minijogo de forca padrão.
