@@ -1,3 +1,4 @@
+# Melhor experiência ao executar no terminal do windows
 import os
 import random as rd
 forcas = ['''
