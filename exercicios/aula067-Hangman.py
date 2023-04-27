@@ -1,5 +1,5 @@
+from replit import clear
 import random as rd
-
 forcas = ['''
   +---+
   |   |
@@ -64,6 +64,7 @@ print()
 while vidas > 0 and '_' in espacos:
     while True:
         chute = str(input('Digite uma letra: ')).lower().strip()[0]
+        clear()
         if chute in 'áàãâäéèêëíìîïóòõôöúùûüç':
             print(f'\033[31mERRO: Letras com acentos não são válidas.\033[m')
         elif chute in repetidas:
