@@ -1,6 +1,9 @@
+from data import dados_perguntas
+
 class Quiz:
     def __init__(self, lista_perguntas):
         self.numero_pergunta = 0
+        self.pontuacao = 0
         self.lista_perguntas = lista_perguntas
 
     def ainda_tem_pergunta(self):
@@ -15,3 +18,14 @@ class Quiz:
                 break
             else:
                 print(f'Erro: "{resposta_usuario}" não é uma resposta válida.')
+        self.conferir_resposta(resposta_usuario, pergunta_atual.resposta)
+
+    def conferir_resposta(self, resposta_usuario, resposta_certa):
+        if resposta_usuario.strip().lower()[0] == resposta_certa.strip().lower()[0]:
+            print('ACERTOU!')
+            self.pontuacao += 1
+        else:
+            print('ERROU!')
+            print(f'A resposta certa seria: {resposta_certa}.')
+        if self.numero_pergunta < len(dados_perguntas):
+            print(f'Sua pontuação atual é: {self.pontuacao}/{self.numero_pergunta}')
