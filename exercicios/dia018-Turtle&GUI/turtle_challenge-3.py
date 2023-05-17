@@ -2,7 +2,7 @@ from turtle import Turtle, Screen
 
 t = Turtle()
 t.shape('turtle')
-t.speed(1000)
+t.speed('fastest')
 s = Screen()
 angulo = 3
 t.penup()
@@ -15,4 +15,3 @@ while True:
         t.right(360 / angulo)
         t.forward(50)
     angulo += 1
-s.exitonclick()
