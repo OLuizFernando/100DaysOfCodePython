@@ -39,7 +39,7 @@ while True:
 
     # aposta do usuário
     while True:
-        aposta = s.textinput('FAÇA SUA APOSTA', 'Em qual tartaruga você aposta? Escolha um cor.').lower().strip()
+        aposta = s.textinput('FAÇA SUA APOSTA', 'Em qual tartaruga você aposta? Escolha uma cor.').lower().strip()
         if aposta in cores:
             break
 
