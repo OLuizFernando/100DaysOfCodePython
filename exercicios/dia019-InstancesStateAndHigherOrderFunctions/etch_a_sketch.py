@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 
 t = Turtle()
+t.setheading(90)
 s = Screen()
 
 
@@ -20,9 +21,15 @@ def esquerda():
     t.left(10)
 
 
+def reiniciar():
+    t.reset()
+    t.setheading(90)
+
+
 s.listen()
-s.onkey(key='w', fun=frente)
-s.onkey(key='a', fun=esquerda)
-s.onkey(key='s', fun=tras)
-s.onkey(key='d', fun=direita)
+s.onkeypress(key='w', fun=frente)
+s.onkeypress(key='a', fun=esquerda)
+s.onkeypress(key='s', fun=tras)
+s.onkeypress(key='d', fun=direita)
+s.onkeypress(key='c', fun=reiniciar)
 s.exitonclick()
