@@ -45,7 +45,7 @@ while True:
 
     # corrida sorteada
     while True:
-        sleep(0.05)
+        sleep(0.025)
         escolhida = choice(tartarugas)
         escolhida.forward(10)
         escolhida.passos += 10
