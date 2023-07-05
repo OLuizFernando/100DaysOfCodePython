@@ -1,5 +1,6 @@
 from turtle import Screen, Turtle
 from time import sleep
+from snake import *
 
 # configura a janela
 s = Screen()
@@ -10,45 +11,27 @@ s.title('Jogo da Cobrinha')
 s.tracer(0)
 
 # constrói a cobra por segmentos e coloca na posição inicial
-cobra = []
-for pos in range(0, -101, -20):
-    corpo = Turtle('square')
-    corpo.color('#2C301D')
-    corpo.penup()
-    corpo.goto(x=pos, y=0)
-    cobra.append(corpo)
-
-
-# funções que fazem a cobra se mover
-def cima():
-    cobra[0].setheading(90)
-
-
-def baixo():
-    cobra[0].setheading(270)
-
-
-def esquerda():
-    cobra[0].setheading(180)
-
-
-def direita():
-    cobra[0].setheading(0)
-
+cobra = Cobra()
 
 while True:
     # update manual dos frames
     s.update()
     sleep(0.1)
-    # faz a cobra andar, segmento por segmento
-    for corpo in range(len(cobra) - 1, 0, -1):
-        cobra[corpo].goto(x=cobra[corpo - 1].xcor(), y=cobra[corpo - 1].ycor())
-    cobra[0].forward(20)
-    s.listen()
-    s.onkey(key='w', fun=cima)
-    s.onkey(key='a', fun=esquerda)
-    s.onkey(key='s', fun=baixo)
-    s.onkey(key='d', fun=direita)
 
+    # faz a cobra se mover constantemente
+    for segmento in range(len(cobra.corpo) - 1, 0, -1):
+        # os segmentos do corpo acompanham o da cabeça
+        cobra.corpo[segmento].goto(x=cobra.corpo[segmento - 1].xcor(), y=cobra.corpo[segmento - 1].ycor())
+    cobra.corpo[0].forward(20)
+    # detecção das teclas para direcionar a cabeça da cobra
+    s.listen()
+    s.onkeypress(key='w', fun=cobra.cima)
+    s.onkeypress(key='a', fun=cobra.esquerda)
+    s.onkeypress(key='s', fun=cobra.baixo)
+    s.onkeypress(key='d', fun=cobra.direita)
+    s.onkeypress(key='Up', fun=cobra.cima)
+    s.onkeypress(key='Left', fun=cobra.esquerda)
+    s.onkeypress(key='Down', fun=cobra.baixo)
+    s.onkeypress(key='Right', fun=cobra.direita)
 
 s.exitonclick()
