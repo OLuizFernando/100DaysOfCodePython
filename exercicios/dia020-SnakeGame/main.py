@@ -18,6 +18,7 @@ for pos in range(0, -101, -20):
     corpo.goto(x=pos, y=0)
     cobra.append(corpo)
 
+
 # funções que fazem a cobra se mover
 def cima():
     cobra[0].setheading(90)
