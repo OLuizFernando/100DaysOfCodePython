@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from time import sleep
 from snake import *
 
@@ -19,19 +19,15 @@ while True:
     sleep(0.1)
 
     # faz a cobra se mover constantemente
-    for segmento in range(len(cobra.corpo) - 1, 0, -1):
-        # os segmentos do corpo acompanham o da cabeça
-        cobra.corpo[segmento].goto(x=cobra.corpo[segmento - 1].xcor(), y=cobra.corpo[segmento - 1].ycor())
-    cobra.corpo[0].forward(20)
+    cobra.mover()
+
     # detecção das teclas para direcionar a cabeça da cobra
     s.listen()
     s.onkeypress(key='w', fun=cobra.cima)
-    s.onkeypress(key='a', fun=cobra.esquerda)
-    s.onkeypress(key='s', fun=cobra.baixo)
-    s.onkeypress(key='d', fun=cobra.direita)
     s.onkeypress(key='Up', fun=cobra.cima)
+    s.onkeypress(key='a', fun=cobra.esquerda)
     s.onkeypress(key='Left', fun=cobra.esquerda)
+    s.onkeypress(key='s', fun=cobra.baixo)
     s.onkeypress(key='Down', fun=cobra.baixo)
+    s.onkeypress(key='d', fun=cobra.direita)
     s.onkeypress(key='Right', fun=cobra.direita)
-
-s.exitonclick()
