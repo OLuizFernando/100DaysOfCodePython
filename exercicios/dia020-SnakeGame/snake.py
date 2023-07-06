@@ -19,6 +19,13 @@ class Cobra:
             segmento.goto(x=pos, y=0)
             self.corpo.append(segmento)
 
+    def novo_segmento(self):
+        segmento = Turtle('square')
+        segmento.color('#2C301D')
+        segmento.penup()
+        self.corpo.append(segmento)
+        segmento.goto(x=self.corpo[0].xcor(), y=self.corpo[0].ycor())
+
     def mover(self):
         # faz a cobra se mover constantemente
         for segmento in range(len(self.corpo) - 1, 0, -1):

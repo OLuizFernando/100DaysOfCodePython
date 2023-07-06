@@ -1,6 +1,7 @@
 from turtle import Screen
 from time import sleep
 from snake import *
+from food import *
 
 # configura a janela
 s = Screen()
@@ -10,8 +11,8 @@ s.title('Jogo da Cobrinha')
 # desliga o tracer para permitir a atualização manual dos frames
 s.tracer(0)
 
-# constrói a cobra por segmentos e coloca na posição inicial
 cobra = Cobra()
+comida = Comida()
 
 while True:
     # update manual dos frames
@@ -31,3 +32,7 @@ while True:
     s.onkeypress(key='Down', fun=cobra.baixo)
     s.onkeypress(key='d', fun=cobra.direita)
     s.onkeypress(key='Right', fun=cobra.direita)
+
+    if cobra.cabeca.distance(comida) < 20:
+        comida.reaparecer()
+        cobra.novo_segmento()
