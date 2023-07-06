@@ -25,6 +25,6 @@ Projeto de lousa mágica no estilo do brinquedo americano "Etch a Sketch" usando
 * [dia019-turtle-race](https://github.com/OLuizFernando/Exercicios100DaysOfCodePython/blob/main/exercicios/dia019-InstancesStateAndHigherOrderFunctions/turtle_race.py) :star:
 
 Jogo de corrida de tartarugas. O usuário escolhe uma cor de tartaruga para apostar e as tartarugas andam em velocidades aleatórias até chegar na linha de chegada.
-* [dia020-snake-game](https://github.com/OLuizFernando/Exercicios100DaysOfCodePython/blob/main/exercicios/dia020-SnakeGame/main.py) :star:
+* [dia020-snake-game](https://github.com/OLuizFernando/Exercicios100DaysOfCodePython/blob/main/exercicios/dia020-SnakeGame) :star:
 
 O clássico jogo da cobrinha inspirado nos celulares antigos. Feito para aprender POO.
