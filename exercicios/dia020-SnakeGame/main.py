@@ -17,7 +17,8 @@ cobra = Cobra()
 comida = Comida()
 placar = Placar()
 
-while True:
+jogo_on = True
+while jogo_on:
     # update manual dos frames
     s.update()
     sleep(0.1)
@@ -46,6 +47,13 @@ while True:
     # detecção de colisão com a parede
     if cobra.cabeca.xcor() >= 300 or cobra.cabeca.xcor() <= -300 or cobra.cabeca.ycor() >= 300 or cobra.cabeca.ycor() <= -300:
         placar.game_over()
-        break
+        jogo_on = False
+
+    for segmento in cobra.corpo:
+        if segmento == cobra.cabeca:
+            pass
+        elif cobra.cabeca.distance(segmento) < 10:
+            placar.game_over()
+            jogo_on = False
 
 s.exitonclick()

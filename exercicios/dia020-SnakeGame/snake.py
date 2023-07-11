@@ -24,7 +24,7 @@ class Cobra:
         segmento.color('#2C301D')
         segmento.penup()
         self.corpo.append(segmento)
-        segmento.goto(x=self.cabeca.xcor(), y=self.cabeca.ycor())
+        segmento.goto(x=self.corpo[1].xcor(), y=self.corpo[1].ycor())
 
     def mover(self):
         # faz a cobra se mover constantemente
