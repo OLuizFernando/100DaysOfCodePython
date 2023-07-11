@@ -8,6 +8,7 @@ s = Screen()
 s.setup(width=600, height=600)
 s.bgcolor('#8DA259')
 s.title('Jogo da Cobrinha')
+s.listen()
 # desliga o tracer para permitir a atualização manual dos frames
 s.tracer(0)
 
@@ -23,7 +24,6 @@ while True:
     cobra.mover()
 
     # detecção das teclas para direcionar a cabeça da cobra
-    s.listen()
     s.onkeypress(key='w', fun=cobra.cima)
     s.onkeypress(key='Up', fun=cobra.cima)
     s.onkeypress(key='a', fun=cobra.esquerda)
@@ -33,6 +33,6 @@ while True:
     s.onkeypress(key='d', fun=cobra.direita)
     s.onkeypress(key='Right', fun=cobra.direita)
 
-    if cobra.cabeca.distance(comida) < 20:
-        comida.reaparecer()
+    if cobra.cabeca.distance(comida) < 10:
+        comida.aparecer()
         cobra.novo_segmento()

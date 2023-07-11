@@ -1,6 +1,10 @@
 from turtle import Turtle
-from random import randint
+from random import randint, choice
 
+posicoes = [-280, -260, -240, -220, -200, -180, -160, -140, -120, -100, -80, -60, -40, -20, 0,
+            20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280]
+
+print(posicoes)
 
 class Comida(Turtle):
 
@@ -10,11 +14,9 @@ class Comida(Turtle):
         self.penup()
         self.color('#2C301D')
         self.speed('fastest')
-        rand_x = randint(-285, 280)
-        rand_y = randint(-280, 285)
-        self.goto(rand_x, rand_y)
+        self.aparecer()
 
-    def reaparecer(self):
+    def aparecer(self):
         rand_x = randint(-285, 280)
         rand_y = randint(-280, 285)
-        self.goto(rand_x, rand_y)
+        self.goto(choice(posicoes), choice(posicoes))

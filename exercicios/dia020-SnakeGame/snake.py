@@ -1,4 +1,5 @@
 from turtle import Turtle
+from time import sleep
 
 
 class Cobra:
@@ -36,7 +37,6 @@ class Cobra:
     # define cada função para direcionar a cabeça da cobra
     # só executa o comando se a direção da cobra não for a direção contrária, assim a cobra não dá ré
     def cima(self):
-
         if self.cabeca.heading() != 270:
             self.cabeca.setheading(90)
 
