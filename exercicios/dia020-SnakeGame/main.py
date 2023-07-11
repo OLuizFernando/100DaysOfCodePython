@@ -49,11 +49,10 @@ while jogo_on:
         placar.game_over()
         jogo_on = False
 
-    for segmento in cobra.corpo:
-        if segmento == cobra.cabeca:
-            pass
-        elif cobra.cabeca.distance(segmento) < 10:
+    # detecção de colisão com o próprio corpo
+    for segmento in cobra.corpo[1:]:
+        if cobra.cabeca.distance(segmento) < 10:
             placar.game_over()
             jogo_on = False
 
-s.exitonclick()
+s.mainloop()
