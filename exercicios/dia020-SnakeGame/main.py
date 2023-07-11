@@ -2,6 +2,7 @@ from turtle import Screen
 from time import sleep
 from snake import *
 from food import *
+from scoreboard import *
 
 # configura a janela
 s = Screen()
@@ -14,6 +15,7 @@ s.tracer(0)
 
 cobra = Cobra()
 comida = Comida()
+placar = Placar()
 
 while True:
     # update manual dos frames
@@ -33,6 +35,17 @@ while True:
     s.onkeypress(key='d', fun=cobra.direita)
     s.onkeypress(key='Right', fun=cobra.direita)
 
+    # detecção de colisão com a comida
     if cobra.cabeca.distance(comida) < 10:
         comida.aparecer()
         cobra.novo_segmento()
+        placar.clear()
+        placar.pontuacao += 1
+        placar.escrever()
+
+    # detecção de colisão com a parede
+    if cobra.cabeca.xcor() >= 300 or cobra.cabeca.xcor() <= -300 or cobra.cabeca.ycor() >= 300 or cobra.cabeca.ycor() <= -300:
+        placar.game_over()
+        break
+
+s.exitonclick()

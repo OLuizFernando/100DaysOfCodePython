@@ -1,5 +1,4 @@
 from turtle import Turtle
-from time import sleep
 
 
 class Cobra:
@@ -25,7 +24,7 @@ class Cobra:
         segmento.color('#2C301D')
         segmento.penup()
         self.corpo.append(segmento)
-        segmento.goto(x=self.corpo[0].xcor(), y=self.corpo[0].ycor())
+        segmento.goto(x=self.cabeca.xcor(), y=self.cabeca.ycor())
 
     def mover(self):
         # faz a cobra se mover constantemente
