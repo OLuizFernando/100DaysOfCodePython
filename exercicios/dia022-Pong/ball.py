@@ -17,7 +17,7 @@ class Bola(Turtle):
         y = self.ycor() + self.mover_y
         self.goto(x, y)
 
-    def rebater(self):
+    def quicar_x(self):
         if 400 > self.xcor() > -400:
             self.mover_x *= -1
 
