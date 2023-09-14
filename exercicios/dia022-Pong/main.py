@@ -30,5 +30,7 @@ while True:
     s.update()
     bola.mover()
     sleep(0.025)
+    if bola.ycor() > 290 or bola.ycor() < -280 or bola.xcor() > 430 or bola.xcor() < -440:
+        break
 
 s.exitonclick()
