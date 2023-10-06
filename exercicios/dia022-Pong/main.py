@@ -2,6 +2,7 @@ from turtle import Screen
 from time import sleep
 from paddle import *
 from ball import *
+from scoreboard import *
 
 s = Screen()
 s.bgcolor('black')
@@ -10,7 +11,13 @@ s.title('Pong')
 s.tracer(0)
 s.listen()
 
+pontos_esq = 0
+pontos_dir = 0
 while True:
+
+    placar_esq = Placar(x=-350, pontos=pontos_esq)
+    placar_dir = Placar(x=350, pontos=pontos_dir)
+
     barra_esq = Barra(x=-400)
     barra_dir = Barra(x=400)
     bola = Bola()
@@ -41,7 +48,12 @@ while True:
             if bola.xcor() > 375 or bola.xcor() < -375:
                 bola.quicar_x()
 
-        if bola.xcor() > 430 or bola.xcor() < -440:
+        if bola.xcor() > 430:
+            pontos_esq += 1
+            break
+
+        if bola.xcor() < -440:
+            pontos_dir += 1
             break
 
     sleep(0.5)

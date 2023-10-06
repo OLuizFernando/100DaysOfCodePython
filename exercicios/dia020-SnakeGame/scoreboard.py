@@ -14,8 +14,8 @@ class Placar(Turtle):
 
     def escrever(self):
         self.goto(0, 270)
-        self.write(arg=f'Pontuação: {self.pontuacao}', move=True, align='center', font=('Consolas', 15, 'bold'))
+        self.write(arg=f'Pontuação: {self.pontuacao}', move=True, align='center', font=('Small Fonts', 15, 'bold'))
 
     def game_over(self):
         self.goto(0, -25)
-        self.write(arg=f'GAME OVER', move=True, align='center', font=('Consolas', 50, 'bold'))
+        self.write(arg=f'GAME OVER', move=True, align='center', font=('Small Fonts', 50, 'bold'))

@@ -13,7 +13,7 @@ class Barra(Turtle):
         self.goto(x=x, y=0)
 
     def cima(self):
-        if self.ycor() < 240:
+        if self.ycor() <= 240:
             self.forward(20)
 
     def baixo(self):
