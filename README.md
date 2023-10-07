@@ -29,4 +29,4 @@ Projetos mais interessantes estão marcados com ⭐.
   - O clássico jogo da cobrinha inspirado nos celulares antigos. Feito para aprender POO.
 - [dia022-pong](https://github.com/OLuizFernando/Exercicios100DaysOfCodePython/tree/main/exercicios/dia022-Pong) :star:
 
-  - Pong refeito usando a biblioteca _Turtle Graphics_, o primeiro jogo eletrônico da história.
+  - Pong, o primeiro jogo eletrônico da história, refeito usando a biblioteca _Turtle Graphics_.
