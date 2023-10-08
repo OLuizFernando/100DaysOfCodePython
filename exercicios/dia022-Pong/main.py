@@ -13,6 +13,7 @@ s.listen()
 
 pontos_esq = 0
 pontos_dir = 0
+
 while True:
 
     placar_esq = Placar(x=-350, pontos=pontos_esq)
