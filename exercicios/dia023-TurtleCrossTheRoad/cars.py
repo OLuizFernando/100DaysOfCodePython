@@ -2,9 +2,9 @@ from turtle import Turtle
 from random import choice
 from time import sleep
 
-cores = ['blue', 'yellow', 'red', 'blueviolet', 'magenta', 'orange']
-posicoes_dir = [-290, -215, -140, -65]
-posicoes_esq = [85, 160, 235, 310]
+CORES = ['blue', 'yellow', 'red', 'blueviolet', 'magenta', 'orange']
+POSICOES_DIR = [-290, -215, -140, -65]
+POSICOES_ESQ = [85, 160, 235, 310]
 
 
 class CarroDir(Turtle):
@@ -13,13 +13,13 @@ class CarroDir(Turtle):
         super().__init__()
         self.shape('square')
         self.shapesize(3, 5)
-        self.color(choice(cores))
+        self.color(choice(CORES))
         self.setheading(180)
         self.penup()
-        self.goto(x=500, y=choice(posicoes_dir))
+        self.goto(x=500, y=choice(POSICOES_DIR))
 
     def andar(self, velocidade):
-        self.forward(velocidade/5)
+        self.forward(velocidade)
 
     def resetar(self):
         self.__init__()
@@ -31,13 +31,13 @@ class CarroEsq(Turtle):
         super().__init__()
         self.shape('square')
         self.shapesize(3, 5)
-        self.color(choice(cores))
+        self.color(choice(CORES))
         self.setheading(0)
         self.penup()
-        self.goto(x=-500, y=choice(posicoes_esq))
+        self.goto(x=-500, y=choice(POSICOES_ESQ))
 
     def andar(self, velocidade):
-        self.forward(velocidade/5)
+        self.forward(velocidade)
 
     def resetar(self):
         self.__init__()

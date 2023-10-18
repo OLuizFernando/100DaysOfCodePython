@@ -25,11 +25,17 @@ s.onkey(key='Up', fun=tartaruga.andar)
 
 while True:
 
-    carro_dir.andar(2)
-    carro_esq.andar(2)
     s.update()
 
+    carro_dir.andar(5)
+    carro_esq.andar(5)
+
+    sleep(0.025)
+
     if tartaruga.distance(carro_dir) < 65 or tartaruga.distance(carro_esq) < 65:
+        break
+
+    if tartaruga.ycor() >= 425:
         break
 
     if carro_dir.xcor() < -500:
