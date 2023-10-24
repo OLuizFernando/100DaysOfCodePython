@@ -34,9 +34,10 @@ while rodando:
     sleep(0.025)
     s.update()
 
-    gerenciador_carros.criar_carro_dir()
-    gerenciador_carros.criar_carro_esq()
-    gerenciador_carros.mover_carros()
+    gerenciador_carros.criar_carro_dir(nivel)
+    gerenciador_carros.criar_carro_esq(nivel)
+    gerenciador_carros.mover_carros(nivel)
+    gerenciador_carros.limpar()
 
     if tartaruga.ycor() < 10:
         for carro in gerenciador_carros.carros_dir:
