@@ -43,12 +43,14 @@ while rodando:
         for carro in gerenciador_carros.carros_dir:
             if tartaruga.distance(carro) < 40:
                 s.update()
+                placar.game_over()
                 rodando = False
 
     if tartaruga.ycor() > 10:
         for carro in gerenciador_carros.carros_esq:
             if tartaruga.distance(carro) < 40:
                 s.update()
+                placar.game_over()
                 rodando = False
 
     if tartaruga.ycor() >= 425:

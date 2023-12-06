@@ -10,5 +10,9 @@ class Placar(Turtle):
         self.color('White')
 
     def escrever(self, texto):
-        self.goto(-390, 400)
-        self.write(arg=texto, move=True, align='center', font=('Small Fonts', 20))
+        self.goto(-390, 410)
+        self.write(arg=texto, move=True, align='center', font=('Small Fonts', 20, 'bold'))
+
+    def game_over(self):
+        self.goto(0, -95)
+        self.write(arg='GAME\nOVER', move=True, align='center', font=('Small Fonts', 115, 'bold'))
