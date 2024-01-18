@@ -26,6 +26,7 @@ s.onkey(key='w', fun=tartaruga.andar)
 s.onkey(key='Up', fun=tartaruga.andar)
 
 nivel = 1
+recorde = int(placar.ler_recorde())
 
 rodando = True
 while rodando:
@@ -43,14 +44,20 @@ while rodando:
         for carro in gerenciador_carros.carros_dir:
             if tartaruga.distance(carro) < 40:
                 s.update()
-                placar.game_over()
+                if nivel > recorde:
+                    placar.atualizar_recorde(nivel)
+                    recorde = placar.ler_recorde()
+                placar.game_over(nivel, recorde)
                 rodando = False
 
     if tartaruga.ycor() > 10:
         for carro in gerenciador_carros.carros_esq:
             if tartaruga.distance(carro) < 40:
                 s.update()
-                placar.game_over()
+                if nivel > recorde:
+                    placar.atualizar_recorde(nivel)
+                    recorde = placar.ler_recorde()
+                placar.game_over(nivel, recorde)
                 rodando = False
 
     if tartaruga.ycor() >= 425:
