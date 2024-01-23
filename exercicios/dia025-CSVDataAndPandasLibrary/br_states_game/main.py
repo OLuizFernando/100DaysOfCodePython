@@ -15,13 +15,29 @@ data_df = pandas.read_csv('27_states.csv')
 #     t.write(data_df.state[i], align='center', font=('Arial', 9, 'bold'))
 #     s.update()
 
-# user_answer = s.textinput(title='Guess a State', prompt='Enter the name of a state in Brazil:')
-#
-# if user_answer in list(data_df.state):
-#     t.goto(x=int(data_df[data_df.state == user_answer].x), y=int(data_df[data_df.state == user_answer].y))
-#     t.write(data_df[data_df.state == user_answer].state, align='center', font=('Arial', 9, 'bold'))
-#     s.update()
+guesses = []
+score = 0
 
-print(data_df[data_df.state == 'Acre'].state)
+game_is_on = True
+while game_is_on:
+
+    user_answer = s.textinput(title=f'{score}/27 States Correct',
+                              prompt='Enter the name of a state in Brazil:')
+
+    if user_answer in list(data_df.state) and user_answer not in guesses:
+
+        score += 1
+        guesses.append(user_answer)
+
+        t.goto(x=int(data_df[data_df.state == user_answer].iloc[0].x),
+               y=int(data_df[data_df.state == user_answer].iloc[0].y))
+
+        index = data_df[data_df.state == user_answer].index[0]
+        t.write(data_df.state[index], align='center', font=('Arial', 9, 'bold'))
+
+        s.update()
+
+        if score >= 27:
+            game_is_on = False
 
 t.mainloop()
