@@ -15,12 +15,13 @@ data_df = pandas.read_csv('27_states.csv')
 #     t.write(data_df.state[i], align='center', font=('Arial', 9, 'bold'))
 #     s.update()
 
-user_answer = s.textinput(title='Guess a State', prompt='Enter the name of a state in Brazil:')
+# user_answer = s.textinput(title='Guess a State', prompt='Enter the name of a state in Brazil:')
+#
+# if user_answer in list(data_df.state):
+#     t.goto(x=int(data_df[data_df.state == user_answer].x), y=int(data_df[data_df.state == user_answer].y))
+#     t.write(data_df[data_df.state == user_answer].state, align='center', font=('Arial', 9, 'bold'))
+#     s.update()
 
-if user_answer in list(data_df.state):
-    # t.goto(x=int(data_df[data_df.state == user_answer].x), y=int(data_df[data_df.state == user_answer].y))
-    # t.write(data_df[data_df.state == user_answer].state, align='center', font=('Arial', 9, 'bold'))
-    # s.update()
-    print(data_df.loc[???])
+print(data_df[data_df.state == 'Acre'].state)
 
 t.mainloop()
