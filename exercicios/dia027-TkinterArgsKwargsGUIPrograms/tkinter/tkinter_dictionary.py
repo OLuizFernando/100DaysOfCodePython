@@ -10,18 +10,22 @@ def mudar_label():
     print(escala.get())
     print(checkbox_estado.get())
     print(escolha_estado.get())
-    print(lista.get(lista.curselection()))
+    try:
+        print(lista.get(lista.curselection()))
+    except TclError:
+        pass
 
 
 janela = Tk()
-janela.title('Teste')
-janela.minsize(width=450, height=450)
+janela.title('Dicionário Tkinter')
+janela.minsize(width=450, height=500)
+janela.config(padx=20, pady=20)
 
-label = Label(text='Hello, World!')
+label = Label(text='Hello, World!', font=('Consolas', 20, 'bold'))
 label.pack(side='top')
 
 botao = Button(text='Botão Teste', width=10, height=1, command=mudar_label)
-botao.pack()
+botao.place(x=165, y=420)
 
 textinho = Entry(width=20)
 textinho.insert(index=END, string='digite um textinho')
@@ -36,7 +40,6 @@ spinbox.pack()
 
 escala = Scale(from_=100, to=0)
 escala.pack()
-
 
 checkbox_estado = IntVar()
 checkbox = Checkbutton(text='Não sou um robô', variable=checkbox_estado)
