@@ -6,7 +6,7 @@ def formatar(m):
         return int(m)
     except ValueError:
         try:
-            return float(m)
+            return float(m.replace(',', '.'))
         except ValueError:
             return 'Inválido'
 
