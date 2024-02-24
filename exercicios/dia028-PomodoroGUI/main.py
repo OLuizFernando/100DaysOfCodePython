@@ -1,58 +1,69 @@
 from tkinter import *
-from time import sleep
 
 
-def countdown(minutes, seconds=0):
-    seconds += minutes * 60
-    for i in range(seconds + 1):
-        global keep_counting
-        if keep_counting:
-            mins, secs = divmod(seconds - i, 60)
-            time_label.config(text=f'{mins:02d}:{secs:02d}')
-            sleep(1)
-            window.update()
-        else:
-            main_label.config(text='Timer')
-            time_label.config(text='00:00')
-            update_checks(0)
+def countdown(count):
+    global keep_counting
+    if keep_counting:
+        minutes = count // 60
+        seconds = count % 60
+        time_label.config(text=f'{minutes:02d}:{seconds:02d}')
+        if count > 0:
+            window.after(1, countdown, count - 1)
 
 
 def pomodoro_process():
-    reps = 0
+    global step
+    global reps
     global keep_counting
     keep_counting = True
-    for i in range(4):
+    if step in [0, 2, 4, 6]:
         work_time(25)
-
         reps += 1
-        update_checks(reps)
+        step += 1
 
-        if i < 3:
-            break_time(5)
-        else:
-            break_time(15)
+    elif step in [1, 3, 5]:
+        break_time(5)
+        update_checks()
+        step += 1
+
+    elif step == 7:
+        break_time(20)
+        update_checks()
+        step += 1
 
 
-def work_time(mins, secs=0):
+def work_time(mins):
+    secs = mins * 60
     main_label.config(text='Work')
-    countdown(mins, secs)
+    countdown(secs)
 
 
-def break_time(mins, secs=0):
+def break_time(mins):
+    secs = mins * 60
     main_label.config(text='Break')
-    countdown(mins, secs)
+    countdown(secs)
 
 
-def reset_time():
+def reset():
+    global step
+    global reps
     global keep_counting
     keep_counting = False
+    main_label.config(text='Timer')
+    time_label.config(text='00:00')
+    step = 0
+    reps = 0
+    update_checks()
 
 
-def update_checks(reps):
+def update_checks():
+    global reps
     checks_label.config(text='✔' * reps)
     checks_label.place(x=(313 - reps * 6.5), y=525)
 
 
+step = 0
+reps = 0
 keep_counting = True
 
 window = Tk()
@@ -78,7 +89,7 @@ start_button = Button(window, text='Start', font=('Small Fonts', 20), width=6, c
 start_button.place(x=27, y=525)
 # start_button.grid(column=0, row=2)
 
-reset_button = Button(window, text='Reset', font=('Small Fonts', 20), width=6, command=reset_time)
+reset_button = Button(window, text='Reset', font=('Small Fonts', 20), width=6, command=reset)
 reset_button.place(x=519, y=525)
 # reset_button.grid(column=2, row=2)
 
