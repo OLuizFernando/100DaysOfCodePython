@@ -13,6 +13,8 @@ def countdown(minutes, seconds=0):
             window.update()
         else:
             main_label.config(text='Timer')
+            time_label.config(text='00:00')
+            update_checks(0)
 
 
 def pomodoro_process():
@@ -44,9 +46,6 @@ def break_time(mins, secs=0):
 def reset_time():
     global keep_counting
     keep_counting = False
-    main_label.config(text='Timer')
-    time_label.config(text='00:00')
-    update_checks(0)
 
 
 def update_checks(reps):
