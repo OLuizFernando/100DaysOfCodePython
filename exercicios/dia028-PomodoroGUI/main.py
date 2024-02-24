@@ -8,7 +8,7 @@ def countdown(count):
         seconds = count % 60
         time_label.config(text=f'{minutes:02d}:{seconds:02d}')
         if count > 0:
-            window.after(1, countdown, count - 1)
+            window.after(1000, countdown, count - 1)
         else:
             pomodoro_process()
 
