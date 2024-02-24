@@ -16,15 +16,14 @@ def countdown(minutes, seconds=0):
 
 
 def pomodoro_process():
-    global reps
+    reps = 0
     global keep_counting
-
     keep_counting = True
     for i in range(4):
         work_time(25)
 
         reps += 1
-        update_checks()
+        update_checks(reps)
 
         if i < 3:
             break_time(5)
@@ -44,19 +43,16 @@ def break_time(mins, secs=0):
 
 def reset_time():
     global keep_counting
-    global reps
     keep_counting = False
-    reps = 0
     main_label.config(text='Timer')
     time_label.config(text='00:00')
+    update_checks(0)
 
 
-def update_checks():
-    checks_label = Label(window, text='✔'*reps, font=('Small Fonts', 15))
+def update_checks(reps):
+    checks_label.config(text='✔' * reps)
     checks_label.place(x=(313 - reps * 6.5), y=525)
 
-
-reps = 0
 
 keep_counting = True
 
@@ -86,5 +82,8 @@ start_button.place(x=27, y=525)
 reset_button = Button(window, text='Reset', font=('Small Fonts', 20), width=6, command=reset_time)
 reset_button.place(x=519, y=525)
 # reset_button.grid(column=2, row=2)
+
+checks_label = Label(window, text='', font=('Small Fonts', 15))
+checks_label.place(x=313, y=525)
 
 window.mainloop()
